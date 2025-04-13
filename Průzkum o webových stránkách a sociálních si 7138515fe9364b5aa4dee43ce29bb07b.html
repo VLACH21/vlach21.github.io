@@ -1,0 +1,695 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Průzkum o webových stránkách a sociálních sítí umělecký zaměřených ateliérů</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7138515f-e936-4b5a-a4de-e43ce29bb07b" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🌐</span></div><h1 class="page-title"><strong>Průzkum o webových stránkách a sociálních sítí umělecký zaměřených ateliérů</strong></h1><p class="page-description"></p></header><div class="page-body"><p id="1f7ab01d-2adc-4fc7-ab9d-5d6818512a23" class="">
+</p><div id="b2fb1e5b-754a-4441-b4d5-0def9c569270" class="collection-content"><h4 class="collection-title">🏫 Fakulta multimediálních komunikací Univerzita Tomáše Bati ve Zlíně (FMK UBT)</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Mark</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>WEB</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Instagram</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>FaceBook</th></tr></thead><tbody><tr id="88293189-f02d-45ae-a47d-ac5dd2ed5949"><td class="cell-title"><a href="https://www.notion.so/FMK-UBT-88293189f02d45aea47dac5dd2ed5949?pvs=21">FMK UBT</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"><a href="https://fmk.utb.cz/" class="url-value">https://fmk.utb.cz/</a></td><td class="cell-JY};"></td><td class="cell-ZFP^"></td></tr><tr id="c549ea4e-1dd0-4949-bd71-f0d62462c106"><td class="cell-title"><a href="https://www.notion.so/c549ea4e1dd04949bd71f0d62462c106?pvs=21">Untitled</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"><a href="https://showcase.fmk.utb.cz/" class="url-value">https://showcase.fmk.utb.cz/</a></td><td class="cell-JY};"></td><td class="cell-ZFP^"></td></tr><tr id="8f7c437b-5b63-4ebb-a3b0-8790300395c4"><td class="cell-title"><a href="https://www.notion.so/Marketingov-komunikace-8f7c437b5b634ebba3b08790300395c4?pvs=21">Marketingové komunikace</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"><a href="https://www.instagram.com/umk.utb/" class="url-value">https://www.instagram.com/umk.utb/</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/marketingovekomunikace" class="url-value">https://www.facebook.com/marketingovekomunikace</a></td></tr><tr id="9c95163b-ab12-4bb5-8dac-f546c26472a3"><td class="cell-title"><a href="https://www.notion.so/Animovan-tvorba-9c95163bab124bb58dacf546c26472a3?pvs=21">Animovaná tvorba</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"></td><td class="cell-ZFP^"><a href="https://www.facebook.com/animatgroup" class="url-value">https://www.facebook.com/animatgroup</a></td></tr><tr id="eba5cb80-ae0a-446b-a9d1-d73979c625b4"><td class="cell-title"><a href="https://www.notion.so/Arts-management-eba5cb80ae0a446ba9d1d73979c625b4?pvs=21">Arts management</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"><a href="https://www.instagram.com/arts.utb/" class="url-value">https://www.instagram.com/arts.utb/</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/arts.utb" class="url-value">https://www.facebook.com/arts.utb</a></td></tr><tr id="3428c011-e402-4869-9d3d-8899a3e2edf4"><td class="cell-title"><a href="https://www.notion.so/Audiovizu-ln-tvorba-3428c011e40248699d3d8899a3e2edf4?pvs=21">Audiovizuální tvorba</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"><a href="https://www.instagram.com/audiovizeutb?fbclid=IwAR3bj56TilFu8EmEt9pShuaBxZHJtwEG1wb_WrI7U0giEotVsXD4NKAgcw0" class="url-value">https://www.instagram.com/audiovizeutb?fbclid=IwAR3bj56TilFu8EmEt9pShuaBxZHJtwEG1wb_WrI7U0giEotVsXD4NKAgcw0</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/atelieraudiovize" class="url-value">https://www.facebook.com/atelieraudiovize</a></td></tr><tr id="91e5117a-d225-4537-93f9-28984fafc16f"><td class="cell-title"><a href="https://www.notion.so/Design-obuvi-91e5117ad225453793f928984fafc16f?pvs=21">Design obuvi</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"></td><td class="cell-ZFP^"><a href="https://www.facebook.com/atelierobuvi" class="url-value">https://www.facebook.com/atelierobuvi</a></td></tr><tr id="948e7e7e-c012-4f6c-b286-0efbcb613ca2"><td class="cell-title"><a href="https://www.notion.so/Design-od-vu-948e7e7ec0124f6cb2860efbcb613ca2?pvs=21">Design oděvu</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"><a href="https://www.instagram.com/adozlin?fbclid=IwAR1h12MGHFvw39FHfIKMxQ7LDHH1YbSUeaA7Zi_BTL91uUprEPqtJeUsHdo" class="url-value">https://www.instagram.com/adozlin?fbclid=IwAR1h12MGHFvw39FHfIKMxQ7LDHH1YbSUeaA7Zi_BTL91uUprEPqtJeUsHdo</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/fmk.ado" class="url-value">https://www.facebook.com/fmk.ado</a></td></tr><tr id="508d8363-c774-47e1-b051-22c0d7c344e0"><td class="cell-title"><a href="https://www.notion.so/Design-perku-508d8363c77447e1b05122c0d7c344e0?pvs=21">Design šperku</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"></td><td class="cell-ZFP^"></td></tr><tr id="8467de6b-2e31-4c89-8862-abfabd7a0b8b"><td class="cell-title"><a href="https://www.notion.so/Digit-ln-design-8467de6b2e314c898862abfabd7a0b8b?pvs=21">Digitální design</a></td><td class="cell-L]o}"><span class="selected-value select-value-color-red">❤️❤️❤️❤️❤️</span></td><td class="cell-[d=|"></td><td class="cell-{Wr]"><a href="https://www.digitalnidesign.cz/" class="url-value">https://www.digitalnidesign.cz/</a></td><td class="cell-JY};"><a href="https://www.instagram.com/digital.utb" class="url-value">https://www.instagram.com/digital.utb</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/DigitalniDesign" class="url-value">https://www.facebook.com/DigitalniDesign</a></td></tr><tr id="5f21e2cf-a10e-4cc6-9880-12f2de2fe94d"><td class="cell-title"><a href="https://www.notion.so/Fotografie-5f21e2cfa10e4cc6988012f2de2fe94d?pvs=21">Fotografie</a></td><td class="cell-L]o}"><span class="selected-value select-value-color-red">❤️❤️❤️❤️❤️</span></td><td class="cell-[d=|"></td><td class="cell-{Wr]"><a href="https://www.arf.works/?fbclid=IwAR0_PNbuJd0OC5ih7pNBYUY96hKBpstyR0CdDHadQ_dC8AiWJAdWk_Xuspg" class="url-value">https://www.arf.works/?fbclid=IwAR0_PNbuJd0OC5ih7pNBYUY96hKBpstyR0CdDHadQ_dC8AiWJAdWk_Xuspg</a></td><td class="cell-JY};"><a href="https://www.instagram.com/arf_utb/" class="url-value">https://www.instagram.com/arf_utb/</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/reklamnifotografie" class="url-value">https://www.facebook.com/reklamnifotografie</a></td></tr><tr id="2b5d1c90-2595-4486-ae03-1c42fec120e7"><td class="cell-title"><a href="https://www.notion.so/Game-design-2b5d1c9025954486ae031c42fec120e7?pvs=21">Game design</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"></td><td class="cell-ZFP^"><a href="https://www.facebook.com/game.utb" class="url-value">https://www.facebook.com/game.utb</a></td></tr><tr id="2f5d2938-bc54-4aa3-8bd6-0eace586532b"><td class="cell-title"><a href="https://www.notion.so/Grafick-design-2f5d2938bc544aa38bd60eace586532b?pvs=21">Grafický design</a></td><td class="cell-L]o}"><span class="selected-value select-value-color-red">❤️❤️❤️❤️❤️</span></td><td class="cell-[d=|"></td><td class="cell-{Wr]"><a href="https://agdzlin.cz/" class="url-value">https://agdzlin.cz/</a></td><td class="cell-JY};"><a href="https://www.instagram.com/agdzlin/?hl=cs" class="url-value">https://www.instagram.com/agdzlin/?hl=cs</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/agdzlin/" class="url-value">https://www.facebook.com/agdzlin/</a></td></tr><tr id="8a8c2390-44ba-45f6-be01-b92a1f73dbf4"><td class="cell-title"><a href="https://www.notion.so/Produktov-design-8a8c239044ba45f6be01b92a1f73dbf4?pvs=21">Produktový design</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"><a href="https://www.instagram.com/produkt.utb" class="url-value">https://www.instagram.com/produkt.utb</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/produkt.utb" class="url-value">https://www.facebook.com/produkt.utb</a></td></tr><tr id="06b5f8ef-aefc-4439-976b-f0240eacf2aa"><td class="cell-title"><a href="https://www.notion.so/Pr-myslov-design-06b5f8efaefc4439976bf0240eacf2aa?pvs=21">Průmyslový design</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"><a href="https://www.instagram.com/apd.zlin/" class="url-value">https://www.instagram.com/apd.zlin/</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/apd.zlin" class="url-value">https://www.facebook.com/apd.zlin</a></td></tr><tr id="66e9ec29-6c27-44d5-b81d-30f1e25cf85b"><td class="cell-title"><a href="https://www.notion.so/Sklo-66e9ec296c2744d5b81d30f1e25cf85b?pvs=21">Sklo</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"><a href="https://www.instagram.com/glasszlin/?hl=cs" class="url-value">https://www.instagram.com/glasszlin/?hl=cs</a></td><td class="cell-ZFP^"><a href="https://www.facebook.com/glasszlin" class="url-value">https://www.facebook.com/glasszlin</a></td></tr><tr id="67298f8f-80d9-4f02-9787-4e1f24ea96cb"><td class="cell-title"><a href="https://www.notion.so/Tvorba-prostoru-67298f8f80d94f0297874e1f24ea96cb?pvs=21">Tvorba prostoru</a></td><td class="cell-L]o}"></td><td class="cell-[d=|"></td><td class="cell-{Wr]"></td><td class="cell-JY};"><a href="https://www.instagram.com/ateliertvorbyprostoru/" class="url-value">https://www.instagram.com/ateliertvorbyprostoru/</a></td><td class="cell-ZFP^"></td></tr></tbody></table><br/><br/></div><p id="58a5094b-80c6-41b6-9172-597c28f91187" class="">Datum: <strong>29.10.2023</strong></p><p id="5af1b916-6582-46eb-893c-e9fa11dfb7e6" class=""><strong>Shrnutí (FMK UBT)</strong></p><p id="44e74365-5ad7-4534-a4c5-376ce34b4024" class="">Formula pro výpočet procent:</p><p id="70ddd1b8-bfa5-4a17-b4b8-8ded85c52a17" class="">x (počet všech ateliérů)/100=0,x; y (počet odkazů ateliérů)/0,x=xy%</p><p id="9562472b-21a0-4e4c-abf4-5d3cd22471b2" class="">Počet atelierů: 15</p><p id="a69ff180-0cf7-41f9-aaf4-e235af7c7171" class="">Počet webových stránek: 3 (20%) (16/100=0,16) (5/0,16=31%; )</p><p id="804519b0-3e30-491a-a31c-dc64ac1db591" class="">Počet odkazů na Instagram: 11 (73,33%)</p><p id="b176a420-b8a2-470b-b1eb-171d10270906" class="">Počet odkazů na Facebook: 13 (86,66%)</p><p id="a9aff314-8351-4ea4-8128-c6b33a084ce7" class="">
+</p><p id="8e4848e4-49bc-439e-86cd-ab8eff253379" class="">
+</p><div id="5160f557-06cc-4336-a2ef-846f67bb05b3" class="collection-content"><h4 class="collection-title">🏫 Fakulta výtvarných umění Vysokého učení technického v Brně (FaVU VUT)</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Mark</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>WEB</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Instagram</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Facebook</th></tr></thead><tbody><tr id="1f3ea09c-1d8e-4640-8cde-137d8d3ce1ba"><td class="cell-title"><a href="https://www.notion.so/FaVU-VUT-1f3ea09c1d8e46408cde137d8d3ce1ba?pvs=21">FaVU VUT</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="https://www.favu.vut.cz/" class="url-value">https://www.favu.vut.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="9e88cfa0-5173-47a1-a64a-a6d01c9002dd"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-hern-ch-m-di-9e88cfa0517347a1a64aa6d01c9002dd?pvs=21">Ateliér herních médií</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="http://multimedia.ffa.vutbr.cz/" class="url-value">http://multimedia.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="d5974675-f67c-447c-92be-5bd329b04b0f"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-grafick-ho-designu-1-d5974675f67c447c92be5bd329b04b0f?pvs=21">Ateliér grafického designu 1</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="https://paper.dropbox.com/doc/agdx.info-5O5sBLYwdxcDV28os9iuM" class="url-value">https://paper.dropbox.com/doc/agdx.info-5O5sBLYwdxcDV28os9iuM</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="bb56f5c6-9efe-41fd-b8a3-995b729f5e80"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-grafick-ho-designu-2-bb56f5c69efe41fdb8a3995b729f5e80?pvs=21">Ateliér grafického designu 2</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="http://agd2.ffa.vutbr.cz/" class="url-value">http://agd2.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="9bbc1772-fa27-41c0-ad52-510d96a74200"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-produktov-ho-designu-9bbc1772fa2741c0ad52510d96a74200?pvs=21">Ateliér produktového designu</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"></td><td class="cell-HniD"></td><td class="cell-CLIc"><a href="https://www.facebook.com/FAVUWerkstatt/" class="url-value">https://www.facebook.com/FAVUWerkstatt/</a></td></tr><tr id="e7000f5b-6d97-42f3-9908-1ed593dc59e5"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-kresby-a-grafiky-e7000f5b6d9742f399081ed593dc59e5?pvs=21">Ateliér kresby a grafiky</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"></td><td class="cell-HniD"></td><td class="cell-CLIc"><a href="https://www.facebook.com/profile.php?id=100054642000424" class="url-value">https://www.facebook.com/profile.php?id=100054642000424</a></td></tr><tr id="7ba5dfee-a29b-4821-b44b-c48cc2b4eaa1"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-mal-stv-1-7ba5dfeea29b4821b44bc48cc2b4eaa1?pvs=21">Ateliér malířství 1</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="http://am1.ffa.vutbr.cz/" class="url-value">http://am1.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="5015621e-7dcc-4b14-a9c7-d79a526aad05"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-mal-stv-2-5015621e7dcc4b14a9c7d79a526aad05?pvs=21">Ateliér malířství 2</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="https://galerie209.wordpress.com/" class="url-value">https://galerie209.wordpress.com/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="c73fd659-a059-40b3-b4ca-639b35084b77"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-mal-stv-3-c73fd659a05940b3b4ca639b35084b77?pvs=21">Ateliér malířství 3</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="https://am3.ffa.vutbr.cz/" class="url-value">https://am3.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="773a9aae-7835-4613-800b-d9e1458e4ea7"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-socha-stv-773a9aae78354613800bd9e1458e4ea7?pvs=21">Ateliér sochařství</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="http://afs.ffa.vutbr.cz/" class="url-value">http://afs.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="530e5366-78db-4125-b34f-58fd051fab22"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-prostorov-tvorby-530e536678db4125b34f58fd051fab22?pvs=21">Ateliér prostorové tvorby</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="http://ans.ffa.vutbr.cz/" class="url-value">http://ans.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="fcf58469-8200-4b10-af25-0fffe2ce0b4e"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-t-lov-ho-designu-fcf5846982004b10af250fffe2ce0b4e?pvs=21">Ateliér tělového designu</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="https://atd.ffa.vutbr.cz/" class="url-value">https://atd.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="b3080368-24cf-447b-b34d-46fe135670ee"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-environmentu-b308036824cf447bb34d46fe135670ee?pvs=21">Ateliér environmentu</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="http://environment.ffa.vutbr.cz/" class="url-value">http://environment.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="bbbd0e44-f820-4d01-baf5-8c20001ca6a2"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-interm-di-bbbd0e44f8204d01baf58c20001ca6a2?pvs=21">Ateliér intermédií</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="http://intermedia.ffa.vutbr.cz/" class="url-value">http://intermedia.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="1cc5f114-00a2-4f66-81ac-fce05cbdb370"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-performance-1cc5f11400a24f6681acfce05cbdb370?pvs=21">Ateliér performance</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"></td><td class="cell-HniD"><a href="https://www.instagram.com/performance_favu/" class="url-value">https://www.instagram.com/performance_favu/</a></td><td class="cell-CLIc"></td></tr><tr id="0197273a-fb41-490c-b3b8-564d539841a7"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-video-0197273afb41490cb3b8564d539841a7?pvs=21">Ateliér video</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"></td><td class="cell-HniD"><a href="https://www.instagram.com/atelier_video_favu/" class="url-value">https://www.instagram.com/atelier_video_favu/</a></td><td class="cell-CLIc"></td></tr><tr id="73acb7c2-f7d7-4001-b399-b36d9f5a023a"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-fotografie-73acb7c2f7d74001b399b36d9f5a023a?pvs=21">Ateliér fotografie</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"><a href="http://afo.ffa.vutbr.cz/" class="url-value">http://afo.ffa.vutbr.cz/</a></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr><tr id="0c6e37be-c32a-4065-8522-a1ceefb6c37c"><td class="cell-title"><a href="https://www.notion.so/Visiting-Artist-s-Studio-0c6e37bec32a40658522a1ceefb6c37c?pvs=21">Visiting Artist’s Studio</a></td><td class="cell-Wqa\"></td><td class="cell-h=Yg"></td><td class="cell-eoT_"></td><td class="cell-HniD"></td><td class="cell-CLIc"></td></tr></tbody></table><br/><br/></div><p id="4a785ee7-cffa-4b78-935f-dfd359e59caa" class="">Datum: <strong>29.10.2023</strong></p><p id="66606452-8fa4-42d1-973a-78debfb7ea86" class=""><strong>Shrnutí (FaVU VUT)</strong></p><p id="1212b8de-a9a3-440b-97b0-91273d5e05e2" class="">Počet atelierů: 17</p><p id="9797d1b4-3a2c-4d1d-9156-7083d2b86718" class="">Počet webových stránek: 12 (75%) (0/100=0,16) (5/0,16=31%)</p><p id="860ccc89-f434-4600-8d4b-15b94f875e13" class="">Počet odkazů na Instagram: 2 (12,5%)</p><p id="63b714af-c5a0-4482-b05f-6f2ddb90e0f4" class="">Počet odkazů na Facebook: 2 (12,5%)</p><p id="cca53b0f-e7aa-48bf-a822-3fb7a1ccc14e" class="">
+</p><p id="321246f4-242b-49be-99d5-483422a2ef91" class="">
+</p><div id="c0f99f8f-13cd-4e86-95bd-0ca02783f2a6" class="collection-content"><h4 class="collection-title">🏫 Fakulta umění a designu Univerzity Jana Evangelisty Purkyně v Ústí nad Labem (FUD UJEP)</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Mark</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>WEB</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Instagram</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Facebook</th></tr></thead><tbody><tr id="89e1f10e-d7a2-46fc-9213-18dd5e53014d"><td class="cell-title"><a href="https://www.notion.so/FUD-UJEP-89e1f10ed7a246fc921318dd5e53014d?pvs=21">FUD UJEP</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="https://fud.ujep.cz/" class="url-value">https://fud.ujep.cz/</a></td><td class="cell-issH"></td><td class="cell-^\lv"></td></tr><tr id="5d96985f-7778-4660-a104-be64e0064134"><td class="cell-title"><a href="https://www.notion.so/Produktov-design-5d96985f77784660a104be64e0064134?pvs=21">Produktový design</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="http://designfud.cz/" class="url-value">http://designfud.cz/</a></td><td class="cell-issH"><a href="https://www.instagram.com/design_usti/?hl=cs" class="url-value">https://www.instagram.com/design_usti/?hl=cs</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/AtelierProduktovyDesign" class="url-value">https://www.facebook.com/AtelierProduktovyDesign</a></td></tr><tr id="89b9d48c-52ac-47a6-b72c-eff1c19488bc"><td class="cell-title"><a href="https://www.notion.so/Design-keramiky-89b9d48c52ac47a6b72ceff1c19488bc?pvs=21">Design keramiky</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"></td><td class="cell-issH"><a href="https://www.instagram.com/keramika_fud/" class="url-value">https://www.instagram.com/keramika_fud/</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/designkeramiky" class="url-value">https://www.facebook.com/designkeramiky</a></td></tr><tr id="23d9252e-b52d-4373-9d98-a5227e69331e"><td class="cell-title"><a href="https://www.notion.so/Design-interi-ru-23d9252eb52d43739d98a5227e69331e?pvs=21">Design interiéru</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"></td><td class="cell-issH"><a href="https://www.instagram.com/design_interieru_fud/" class="url-value">https://www.instagram.com/design_interieru_fud/</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/profile.php?id=100021562279435" class="url-value">https://www.facebook.com/profile.php?id=100021562279435</a></td></tr><tr id="5d52a571-9734-4860-bcae-868669e48755"><td class="cell-title"><a href="https://www.notion.so/Od-vn-a-textiln-design-5d52a57197344860bcae868669e48755?pvs=21">Oděvní a textilní design</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"></td><td class="cell-issH"><a href="https://www.instagram.com/aotd.fud/" class="url-value">https://www.instagram.com/aotd.fud/</a></td><td class="cell-^\lv"></td></tr><tr id="da2248af-62fb-48b4-acaa-e981e7890dcc"><td class="cell-title"><a href="https://www.notion.so/P-rodn-materi-ly-da2248af62fb48b4acaae981e7890dcc?pvs=21">Přírodní materiály</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="https://fud.ujep.cz/sites/prirodni-materialy/" class="url-value">https://fud.ujep.cz/sites/prirodni-materialy/</a></td><td class="cell-issH"><a href="https://www.instagram.com/prirodnimaterialy/" class="url-value">https://www.instagram.com/prirodnimaterialy/</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/prirodnimaterialyFUD" class="url-value">https://www.facebook.com/prirodnimaterialyFUD</a></td></tr><tr id="b3210b1c-d861-48fa-8fe1-531c2c6e019b"><td class="cell-title"><a href="https://www.notion.so/Sklo-b3210b1cd86148fa8fe1531c2c6e019b?pvs=21">Sklo</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"></td><td class="cell-issH"><a href="https://www.instagram.com/sklo_fud_ujep/" class="url-value">https://www.instagram.com/sklo_fud_ujep/</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/sklo.fud" class="url-value">https://www.facebook.com/sklo.fud</a></td></tr><tr id="344b3c25-809e-4404-8e24-fe25711895d9"><td class="cell-title"><a href="https://www.notion.so/Vizu-ln-design-344b3c25809e44048e24fe25711895d9?pvs=21">Vizuální design</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="https://www.vizualove.cz/" class="url-value">https://www.vizualove.cz/</a></td><td class="cell-issH"><a href="https://www.instagram.com/vizualove/" class="url-value">https://www.instagram.com/vizualove/</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/VizualniDesign" class="url-value">https://www.facebook.com/VizualniDesign</a></td></tr><tr id="0c9af697-b79a-4d5d-b89b-0f79e4c28dc4"><td class="cell-title"><a href="https://www.notion.so/Grafick-design-I-0c9af697b79a4d5db89b0f79e4c28dc4?pvs=21">Grafický design I</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"></td><td class="cell-issH"><a href="https://www.instagram.com/gd1_fud/" class="url-value">https://www.instagram.com/gd1_fud/</a></td><td class="cell-^\lv"></td></tr><tr id="bacac7ad-23b6-4700-834c-23dadbdf5e27"><td class="cell-title"><a href="https://www.notion.so/Grafick-design-II-bacac7ad23b64700834c23dadbdf5e27?pvs=21">Grafický design II</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="https://gd2.cz/" class="url-value">https://gd2.cz/</a></td><td class="cell-issH"><a href="https://www.instagram.com/gd2.fud" class="url-value">https://www.instagram.com/gd2.fud</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/gd2.fud" class="url-value">https://www.facebook.com/gd2.fud</a></td></tr><tr id="6c673d9b-c9c3-4171-b915-cf60c5b45a02"><td class="cell-title"><a href="https://www.notion.so/Aplikovan-fotografie-6c673d9bc9c34171b915cf60c5b45a02?pvs=21">Aplikovaná fotografie</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"></td><td class="cell-issH"><a href="https://www.instagram.com/aaf.fud/?hl=cs" class="url-value">https://www.instagram.com/aaf.fud/?hl=cs</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/groups/29140123519" class="url-value">https://www.facebook.com/groups/29140123519</a></td></tr><tr id="2935ec01-6839-4322-b029-99155a11eb9b"><td class="cell-title"><a href="https://www.notion.so/Fine-Art-Photography-2935ec0168394322b02999155a11eb9b?pvs=21">Fine Art – Photography</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"></td><td class="cell-issH"></td><td class="cell-^\lv"></td></tr><tr id="2cb00596-910c-4f1e-9d5b-68405e2a25d4"><td class="cell-title"><a href="https://www.notion.so/Fotografie-2cb00596910c4f1e9d5b68405e2a25d4?pvs=21">Fotografie</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="https://fud.ujep.cz/sites/fotografie/" class="url-value">https://fud.ujep.cz/sites/fotografie/</a></td><td class="cell-issH"><a href="https://www.instagram.com/fotografie.fud/?hl=cs" class="url-value">https://www.instagram.com/fotografie.fud/?hl=cs</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/Fotografie.fud" class="url-value">https://www.facebook.com/Fotografie.fud</a></td></tr><tr id="03b2b9c3-b0b3-4f2c-8669-0323eb553384"><td class="cell-title"><a href="https://www.notion.so/Objekt-Prostor-Akce-03b2b9c3b0b34f2c86690323eb553384?pvs=21">Objekt – Prostor – Akce</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="https://atelier-objektprostorakce-fud.tumblr.com/" class="url-value">https://atelier-objektprostorakce-fud.tumblr.com/</a></td><td class="cell-issH"><a href="https://www.instagram.com/o_p_a_fud/" class="url-value">https://www.instagram.com/o_p_a_fud/</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/performance.fud" class="url-value">https://www.facebook.com/performance.fud</a></td></tr><tr id="0b1d6de8-e4e4-4aae-b9c8-08225127182c"><td class="cell-title"><a href="https://www.notion.so/Time-Based-Media-0b1d6de8e4e44aaeb9c808225127182c?pvs=21">Time-Based Media</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="https://timebasedmedia.cz/akce/" class="url-value">https://timebasedmedia.cz/akce/</a></td><td class="cell-issH"><a href="https://www.instagram.com/tbm_fud/" class="url-value">https://www.instagram.com/tbm_fud/</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/ateliertimebasedmedia" class="url-value">https://www.facebook.com/ateliertimebasedmedia</a></td></tr><tr id="b45de1db-66b5-43e9-865f-44827ebfb268"><td class="cell-title"><a href="https://www.notion.so/Interaktivn-m-dia-b45de1db66b543e9865f44827ebfb268?pvs=21">Interaktivní média</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="https://interaktivnimedia.cz/" class="url-value">https://interaktivnimedia.cz/</a></td><td class="cell-issH"><a href="https://www.facebook.com/InteractivemediaFUD" class="url-value">https://www.facebook.com/InteractivemediaFUD</a></td><td class="cell-^\lv"><a href="https://www.instagram.com/interaktivnimedia_fud_ujep/" class="url-value">https://www.instagram.com/interaktivnimedia_fud_ujep/</a></td></tr><tr id="f24528d8-912f-4459-996d-e2dc6790bab6"><td class="cell-title"><a href="https://www.notion.so/Digit-ln-m-dia-f24528d8912f4459996de2dc6790bab6?pvs=21">Digitální média</a></td><td class="cell-dY]@"></td><td class="cell-hCNL"></td><td class="cell-iad`"><a href="https://fud.ujep.cz/sites/digitalni-media/" class="url-value">https://fud.ujep.cz/sites/digitalni-media/</a></td><td class="cell-issH"><a href="https://www.instagram.com/digitalni_media_fud_ujep/?hl=cs" class="url-value">https://www.instagram.com/digitalni_media_fud_ujep/?hl=cs</a></td><td class="cell-^\lv"><a href="https://www.facebook.com/DigitalnimediaFUD" class="url-value">https://www.facebook.com/DigitalnimediaFUD</a></td></tr></tbody></table><br/><br/></div><p id="fed865dd-e5f5-41ab-8988-080749aae9ab" class="">Datum: <strong>29.10.2023</strong></p><p id="e807d891-cf83-4009-b306-931716aca902" class=""><strong>Shrnutí (FUD UJEP)</strong></p><p id="c8dc5c02-4def-4600-b300-2a7bbf1d9ac1" class="">Počet atelierů: 16</p><p id="254ceff2-87fb-4c2f-8fa2-4e89c63b58bb" class="">Počet webových stránek: 9 (56,25%) (0/100=0,16) (5/0,16=31%)</p><p id="fe586d00-4ffb-4d9a-acfe-7dbd9559cef1" class="">Počet odkazů na Instagram: 15 (93,75%)</p><p id="b204abd0-99ae-4b50-abea-9da29e048502" class="">Počet odkazů na Facebook: 13 (81,25%)</p><p id="c4f045d0-0316-4d33-bb18-766cd1226a3e" class="">
+</p><p id="d1eff87b-33d8-4903-af50-d4a53e38f075" class="">
+</p><p id="f342c89f-a93e-4bc7-8c21-7bd154fba2a6" class="">
+</p><div id="0c846b0a-0b57-445a-b763-150e7efa3559" class="collection-content"><h4 class="collection-title">🏫 Vysoká škola uměleckoprůmyslová v Praze (UMPRUM)</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Mark</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>WEB</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Instagram</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Facebook</th></tr></thead><tbody><tr id="b64ae164-0f44-4a75-b810-8833bed0f7ef"><td class="cell-title"><a href="https://www.notion.so/UMPRUM-b64ae1640f444a75b8108833bed0f7ef?pvs=21">UMPRUM</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"><a href="https://www.umprum.cz/" class="url-value">https://www.umprum.cz/</a></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/umprum_praha/" class="url-value">https://www.instagram.com/umprum_praha/</a></td><td class="cell-|Tie"></td></tr><tr id="121806e9-6bb9-448e-b1df-5a18b2979e1b"><td class="cell-title"><a href="https://www.notion.so/Architektura-I-121806e96bb9448eb1df5a18b2979e1b?pvs=21">Architektura I</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"></td><td class="cell-|Tie"><a href="https://www.facebook.com/a1umprum/?ref=page_internal" class="url-value">https://www.facebook.com/a1umprum/?ref=page_internal</a></td></tr><tr id="00d267cc-62a8-44e8-92f6-1c0c04a37037"><td class="cell-title"><a href="https://www.notion.so/Architektura-II-00d267cc62a844e892f61c0c04a37037?pvs=21">Architektura II</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"></td><td class="cell-|Tie"></td></tr><tr id="7ad92e10-c606-46fe-aced-0f9d5e1b7a81"><td class="cell-title"><a href="https://www.notion.so/Architektura-III-7ad92e10c60646feaced0f9d5e1b7a81?pvs=21">Architektura III</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/a3studioprague/" class="url-value">https://www.instagram.com/a3studioprague/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/StudioA3Umprum/" class="url-value">https://www.facebook.com/StudioA3Umprum/</a></td></tr><tr id="fff4f565-5f76-4d29-b696-6cd6a1227b2b"><td class="cell-title"><a href="https://www.notion.so/Architektura-IV-fff4f5655f764d29b6966cd6a1227b2b?pvs=21">Architektura IV</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/a4_umprum/" class="url-value">https://www.instagram.com/a4_umprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/A4UMPRUM/" class="url-value">https://www.facebook.com/A4UMPRUM/</a></td></tr><tr id="d105b0e5-6249-4640-9a14-c4dbfec4f1f4"><td class="cell-title"><a href="https://www.notion.so/Pr-myslov-design-d105b0e5624946409a14c4dbfec4f1f4?pvs=21">Průmyslový design</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"><a href="https://in.pinterest.com/D1_UMPRUM/d1_projects/" class="url-value">https://in.pinterest.com/D1_UMPRUM/d1_projects/</a></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/d1.prumysl/" class="url-value">https://www.instagram.com/d1.prumysl/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/D1UMPRUM/" class="url-value">https://www.facebook.com/D1UMPRUM/</a></td></tr><tr id="67ba6ff2-cb4c-4f7d-84c2-bd1d8a427212"><td class="cell-title"><a href="https://www.notion.so/Design-n-bytku-a-interi-ru-67ba6ff2cb4c4f7d84c2bd1d8a427212?pvs=21">Design nábytku a interiéru</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/d2_umprum/" class="url-value">https://www.instagram.com/d2_umprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/UMPRUMD2/" class="url-value">https://www.facebook.com/UMPRUMD2/</a></td></tr><tr id="fd6408b0-267c-4538-a576-1af7fe62305d"><td class="cell-title"><a href="https://www.notion.so/Produktov-design-fd6408b0267c4538a5761af7fe62305d?pvs=21">Produktový design</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/d3/" class="url-value">https://www.instagram.com/d3/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/umprumproduktovydesign/" class="url-value">https://www.facebook.com/umprumproduktovydesign/</a></td></tr><tr id="57ad31c7-1a6f-49e6-a88d-584a2eb56ae6"><td class="cell-title"><a href="https://www.notion.so/Voln-um-n-I-57ad31c71a6f49e6a88d584a2eb56ae6?pvs=21">Volné umění I</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"></td><td class="cell-|Tie"></td></tr><tr id="072e1a1d-5116-4d50-9b0d-f2294e3fe3e6"><td class="cell-title"><a href="https://www.notion.so/Voln-um-n-II-072e1a1d51164d509b0df2294e3fe3e6?pvs=21">Volné umění II</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/atelier307umprum/" class="url-value">https://www.instagram.com/atelier307umprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/profile.php?id=100054269959637" class="url-value">https://www.facebook.com/profile.php?id=100054269959637</a></td></tr><tr id="895d7304-e208-4c01-8cbb-cc7fd11806e8"><td class="cell-title"><a href="https://www.notion.so/Voln-um-n-III-895d7304e2084c018cbbcc7fd11806e8?pvs=21">Volné umění III</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/vu3_umprum/" class="url-value">https://www.instagram.com/vu3_umprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/intermediaumprum" class="url-value">https://www.facebook.com/intermediaumprum</a></td></tr><tr id="593123a9-7e3c-4b33-977b-ffc49dd2304b"><td class="cell-title"><a href="https://www.notion.so/Voln-um-n-IV-593123a97e3c4b33977bffc49dd2304b?pvs=21">Volné umění IV</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"></td><td class="cell-|Tie"><a href="https://www.facebook.com/studioofphotographyAAAD/" class="url-value">https://www.facebook.com/studioofphotographyAAAD/</a></td></tr><tr id="f197565d-6bd9-43ba-90cc-243da74150a6"><td class="cell-title"><a href="https://www.notion.so/Ateli-r-s-hostuj-c-m-um-lcem-f197565d6bd943ba90cc243da74150a6?pvs=21">Ateliér s hostujícím umělcem</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/umprum_visiting_artist_studio/" class="url-value">https://www.instagram.com/umprum_visiting_artist_studio/</a></td><td class="cell-|Tie"></td></tr><tr id="501e92fb-a489-4247-9854-9d4c59611ee9"><td class="cell-title"><a href="https://www.notion.so/Sklo-501e92fba489424798549d4c59611ee9?pvs=21">Sklo</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/glass_umprum/" class="url-value">https://www.instagram.com/glass_umprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/aaadglass/" class="url-value">https://www.facebook.com/aaadglass/</a></td></tr><tr id="e64a2438-a995-4509-ac13-135f4b224ffd"><td class="cell-title"><a href="https://www.notion.so/Keramika-a-porcel-n-e64a2438a9954509ac13135f4b224ffd?pvs=21">Keramika a porcelán</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/keramika_umprum/" class="url-value">https://www.instagram.com/keramika_umprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/Atelier.keramiky.a.porcelanu/" class="url-value">https://www.facebook.com/Atelier.keramiky.a.porcelanu/</a></td></tr><tr id="e5bb7bb9-11b6-429e-b7a8-14155935be94"><td class="cell-title"><a href="https://www.notion.so/K-O-V-e5bb7bb911b6429eb7a814155935be94?pvs=21">K.O.V.</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/k.o.v.umprum/" class="url-value">https://www.instagram.com/k.o.v.umprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/studiokov/" class="url-value">https://www.facebook.com/studiokov/</a></td></tr><tr id="64c212d8-1900-433e-909a-223ebd9df348"><td class="cell-title"><a href="https://www.notion.so/M-dn-tvorba-64c212d81900433e909a223ebd9df348?pvs=21">Módní tvorba</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/fashiondesignstudio_umprum/" class="url-value">https://www.instagram.com/fashiondesignstudio_umprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/fashionstudioAAAD/" class="url-value">https://www.facebook.com/fashionstudioAAAD/</a></td></tr><tr id="fe605179-6121-41d6-8e8d-a467b104250a"><td class="cell-title"><a href="https://www.notion.so/Design-od-vu-a-obuvi-fe605179612141d68e8da467b104250a?pvs=21">Design oděvu a obuvi</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/odevobuv/" class="url-value">https://www.instagram.com/odevobuv/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/AtelierDesignOdevuAObuvi/" class="url-value">https://www.facebook.com/AtelierDesignOdevuAObuvi/</a></td></tr><tr id="b384574c-3ac3-417c-8b94-f00f03c79c42"><td class="cell-title"><a href="https://www.notion.so/Textil-b384574c3ac3417c8b94f00f03c79c42?pvs=21">Textil</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/textilestudio_umprum/?hl=cs" class="url-value">https://www.instagram.com/textilestudio_umprum/?hl=cs</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/TextileDesignAaadInPrague/" class="url-value">https://www.facebook.com/TextileDesignAaadInPrague/</a></td></tr><tr id="5d78e4dc-b1f5-47d0-a2f4-9b545e612b37"><td class="cell-title"><a href="https://www.notion.so/Ilustrace-a-grafika-5d78e4dcb1f547d0a2f49b545e612b37?pvs=21">Ilustrace a grafika</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"><a href="https://atelierilustrace.tumblr.com/" class="url-value">https://atelierilustrace.tumblr.com/</a></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/ilustraceumprum/" class="url-value">https://www.instagram.com/ilustraceumprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/atelierilustrace/" class="url-value">https://www.facebook.com/atelierilustrace/</a></td></tr><tr id="33aa8ad7-f2f4-46ca-903d-e5a24518cb4e"><td class="cell-title"><a href="https://www.notion.so/Tvorba-p-sma-a-typografie-33aa8ad7f2f446ca903de5a24518cb4e?pvs=21">Tvorba písma a typografie</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.facebook.com/typosemestr.atelier/" class="url-value">https://www.facebook.com/typosemestr.atelier/</a></td><td class="cell-|Tie"><a href="https://www.instagram.com/umprumtype/" class="url-value">https://www.instagram.com/umprumtype/</a></td></tr><tr id="8c2798d4-8f13-4f76-9036-3c658723a634"><td class="cell-title"><a href="https://www.notion.so/Grafick-design-a-vizu-ln-komunikace-8c2798d48f134f7690363c658723a634?pvs=21">Grafický design a vizuální komunikace</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"><a href="http://www.gdvk.cz/" class="url-value">http://www.gdvk.cz/</a></td><td class="cell-&lt;iAC"></td><td class="cell-|Tie"><a href="https://www.facebook.com/gdvkvsup" class="url-value">https://www.facebook.com/gdvkvsup</a></td></tr><tr id="ce749e42-a295-4d8e-8d04-b6ce005e91c1"><td class="cell-title"><a href="https://www.notion.so/Grafick-design-a-nov-m-dia-ce749e42a2954d8e8d04b6ce005e91c1?pvs=21">Grafický design a nová média</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"><a href="http://www.304.cz/index/index" class="url-value">http://www.304.cz/index/index</a></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/atelier_gdnm/" class="url-value">https://www.instagram.com/atelier_gdnm/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/atelier304" class="url-value">https://www.facebook.com/atelier304</a></td></tr><tr id="a2962bce-c772-45b7-8852-7e56b5fd54a7"><td class="cell-title"><a href="https://www.notion.so/Animace-a-film-a2962bcec77245b788527e56b5fd54a7?pvs=21">Animace a film</a></td><td class="cell-i`&gt;o"><span class="selected-value select-value-color-red">❤️❤️❤️❤️❤️</span></td><td class="cell-NAYq"></td><td class="cell-Dyuj"><a href="https://animaceumprum.cz/" class="url-value">https://animaceumprum.cz/</a></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/animaceumprum/" class="url-value">https://www.instagram.com/animaceumprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/animaceumprum" class="url-value">https://www.facebook.com/animaceumprum</a></td></tr><tr id="0f8b9035-9e15-4fa8-aba0-eb6589e96689"><td class="cell-title"><a href="https://www.notion.so/Fotografie-II-0f8b90359e154fa8aba0eb6589e96689?pvs=21">Fotografie II</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"><a href="https://www.instagram.com/f2umprum/" class="url-value">https://www.instagram.com/f2umprum/</a></td><td class="cell-|Tie"><a href="https://www.facebook.com/F2umprum" class="url-value">https://www.facebook.com/F2umprum</a></td></tr><tr id="ce4eb7e3-3dc3-4ba2-8370-22949535ed0c"><td class="cell-title"><a href="https://www.notion.so/Design-a-digit-ln-technologie-ce4eb7e33dc34ba2837022949535ed0c?pvs=21">Design a digitální technologie</a></td><td class="cell-i`&gt;o"></td><td class="cell-NAYq"></td><td class="cell-Dyuj"></td><td class="cell-&lt;iAC"></td><td class="cell-|Tie"></td></tr></tbody></table><br/><br/></div><p id="1b88c3c3-92a5-4e68-9039-0a82d243a1c9" class="">Datum: <strong>29.10.2023</strong></p><p id="3bbab08d-5322-4949-9aef-8c300a49bac1" class=""><strong>Shrnutí (UMPRUM)</strong></p><p id="c9dbf85b-1862-4659-ae6f-895cf3b62033" class="">Počet atelierů: 25</p><p id="4639d1a6-f62f-495f-9338-4aacfc3cbede" class="">Počet webových stránek: 5 (20%) (0/100=0,16) (5/0,16=31%)</p><p id="0005bca1-f073-46c0-b148-ad54ea503a6d" class="">Počet odkazů na Instagram: 19 (76%)</p><p id="c3bb4623-77e3-4fa6-87b2-af28474fe33e" class="">Počet odkazů na Facebook: 21 (84%)</p><p id="280fe9a5-de48-4b6c-b070-2d7ead96bc59" class="">
+</p><div id="409681cb-c54c-45ee-800b-19293801f08f" class="collection-content"><h4 class="collection-title">🏫 Fakulta designu a umění Ladislava Sutnara Západočeská univerzita v Plzni (FDU ZČU)</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Mark</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>WEB</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Instagram</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesUrl"><path d="M7.69922 10.8945L8.73828 9.84863C7.91797 9.77344 7.34375 9.51367 6.91992 9.08984C5.76465 7.93457 5.76465 6.29395 6.91309 5.14551L9.18262 2.87598C10.3379 1.7207 11.9717 1.7207 13.127 2.87598C14.2891 4.04492 14.2822 5.67188 13.1338 6.82031L11.958 7.99609C12.1768 8.49512 12.2451 9.10352 12.1289 9.62988L14.0908 7.6748C15.7725 6 15.7793 3.62109 14.084 1.92578C12.3887 0.223633 10.0098 0.237305 8.33496 1.91211L5.95605 4.29785C4.28125 5.97266 4.26758 8.35156 5.96289 10.0469C6.36621 10.4434 6.90625 10.7441 7.69922 10.8945ZM8.30078 5.13184L7.26855 6.17773C8.08203 6.25293 8.66309 6.51953 9.08008 6.93652C10.2422 8.09863 10.2422 9.73242 9.08691 10.8809L6.81738 13.1504C5.66211 14.3057 4.03516 14.3057 2.87305 13.1504C1.71094 11.9883 1.71777 10.3545 2.87305 9.20605L4.04199 8.03027C3.83008 7.53125 3.75488 6.92969 3.87109 6.39648L1.91602 8.35156C0.234375 10.0264 0.227539 12.4121 1.92285 14.1074C3.61816 15.8027 5.99707 15.7891 7.67188 14.1143L10.0439 11.7354C11.7256 10.0537 11.7324 7.6748 10.0371 5.98633C9.64062 5.58301 9.10059 5.28223 8.30078 5.13184Z"></path></svg></span>Facebook</th></tr></thead><tbody><tr id="3d2f8640-d51f-4c6b-ba4d-09673b92b93a"><td class="cell-title"><a href="https://www.notion.so/FDU-Z-U-3d2f8640d51f4c6bba4d09673b92b93a?pvs=21">FDU ZČU</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="><a href="https://www.fdu.zcu.cz/cs/" class="url-value">https://www.fdu.zcu.cz/cs/</a></td><td class="cell-RorW"></td><td class="cell-EXY_"></td></tr><tr id="87643d55-0da4-4c23-b0aa-a100d7663153"><td class="cell-title"><a href="https://www.notion.so/Animace-87643d550da44c23b0aaa100d7663153?pvs=21">Animace</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="><a href="https://ait.fdu.zcu.cz/" class="url-value">https://ait.fdu.zcu.cz/</a></td><td class="cell-RorW"></td><td class="cell-EXY_"><a href="https://www.facebook.com/AnimovanaInteraktivniTvorba/" class="url-value">https://www.facebook.com/AnimovanaInteraktivniTvorba/</a></td></tr><tr id="e42ea183-1ae6-4c96-94e7-8cc5492f0d56"><td class="cell-title"><a href="https://www.notion.so/Fotografie-e42ea1831ae64c9694e78cc5492f0d56?pvs=21">Fotografie</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"></td></tr><tr id="55e74952-57b3-4781-adaa-bd27dd352702"><td class="cell-title"><a href="https://www.notion.so/Interaktivn-design-55e7495257b34781adaabd27dd352702?pvs=21">Interaktivní design</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"></td></tr><tr id="d27b169e-2212-4066-b89b-8c05e18dbff0"><td class="cell-title"><a href="https://www.notion.so/Medi-ln-ilustrace-d27b169e22124066b89b8c05e18dbff0?pvs=21">Mediální ilustrace</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"><a href="https://www.facebook.com/medillus" class="url-value">https://www.facebook.com/medillus</a></td></tr><tr id="ccd47399-34b3-4bc2-87d8-f6ee28c674f2"><td class="cell-title"><a href="https://www.notion.so/Multim-dia-ccd4739934b34bc287d8f6ee28c674f2?pvs=21">Multimédia</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="><a href="https://multimedia.fdu.zcu.cz/" class="url-value">https://multimedia.fdu.zcu.cz/</a></td><td class="cell-RorW"></td><td class="cell-EXY_"></td></tr><tr id="4d7da887-f739-48c6-bc9b-a8a0400cffc0"><td class="cell-title"><a href="https://www.notion.so/Pr-myslov-design-4d7da887f73948c6bc9ba8a0400cffc0?pvs=21">Průmyslový design</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"><a href="https://www.instagram.com/fduls_plzen_design/" class="url-value">https://www.instagram.com/fduls_plzen_design/</a></td><td class="cell-EXY_"></td></tr><tr id="4c9ee4f7-8bb9-4ffe-a319-73d823da8402"><td class="cell-title"><a href="https://www.notion.so/Design-n-bytku-a-interi-ru-4c9ee4f78bb94ffea31973d823da8402?pvs=21">Design nábytku a interiéru</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"><a href="https://www.facebook.com/sutnarkanabytekainterier/" class="url-value">https://www.facebook.com/sutnarkanabytekainterier/</a></td></tr><tr id="eb6aca85-94a3-4831-b402-b83b5b3ac4cb"><td class="cell-title"><a href="https://www.notion.so/Fashion-design-eb6aca8594a34831b402b83b5b3ac4cb?pvs=21">Fashion design</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"></td></tr><tr id="d95af800-81ae-437c-b1d7-e9c0883b9260"><td class="cell-title"><a href="https://www.notion.so/Keramick-design-d95af80081ae437cb1d7e9c0883b9260?pvs=21">Keramický design</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="><a href="http://www.atelierkeramikyfduls.cz/" class="url-value">http://www.atelierkeramikyfduls.cz/</a></td><td class="cell-RorW"><a href="https://www.instagram.com/keramika.sutnarka/" class="url-value">https://www.instagram.com/keramika.sutnarka/</a></td><td class="cell-EXY_"><a href="https://www.facebook.com/atelierkeramikyfduls/?ref=br_rs" class="url-value">https://www.facebook.com/atelierkeramikyfduls/?ref=br_rs</a></td></tr><tr id="fed280be-37f0-4cea-a3f0-5e5228663f91"><td class="cell-title"><a href="https://www.notion.so/Produktov-design-fed280be37f04ceaa3f05e5228663f91?pvs=21">Produktový design</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"><a href="https://www.facebook.com/profile.php?id=100083302693062" class="url-value">https://www.facebook.com/profile.php?id=100083302693062</a></td></tr><tr id="6b3b2330-7c7e-4d80-9f41-6177f0ed9f2f"><td class="cell-title"><a href="https://www.notion.so/Environment-ln-design-pro-architekturu-6b3b23307c7e4d809f416177f0ed9f2f?pvs=21">Environmentální design pro architekturu</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"><a href="https://www.facebook.com/profile.php?id=100083302693062" class="url-value">https://www.facebook.com/profile.php?id=100083302693062</a></td></tr><tr id="41cc6d5b-3c62-420b-abef-d580f75577b8"><td class="cell-title"><a href="https://www.notion.so/Didaktick-ilustrace-41cc6d5b3c62420babefd580f75577b8?pvs=21">Didaktická ilustrace</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"><a href="https://www.instagram.com/illustration_sutnarka/" class="url-value">https://www.instagram.com/illustration_sutnarka/</a></td><td class="cell-EXY_"><a href="https://www.facebook.com/profile.php?id=100064906891862" class="url-value">https://www.facebook.com/profile.php?id=100064906891862</a></td></tr><tr id="5e6b7e02-c76e-4aba-ac83-9e4e5f0cd9f4"><td class="cell-title"><a href="https://www.notion.so/GD-a-digit-ln-m-dia-5e6b7e02c76e4abaac839e4e5f0cd9f4?pvs=21">GD a digitální média</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"></td></tr><tr id="77efaa0d-2342-4055-ae80-476f7542165d"><td class="cell-title"><a href="https://www.notion.so/GD-a-vizu-ln-komunikace-77efaa0d23424055ae80476f7542165d?pvs=21">GD a vizuální komunikace</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"><a href="https://www.instagram.com/vizualka.sutnarka/" class="url-value">https://www.instagram.com/vizualka.sutnarka/</a></td><td class="cell-EXY_"></td></tr><tr id="92ace7db-9be7-4ccd-83e8-7b03b682a22b"><td class="cell-title"><a href="https://www.notion.so/Komiks-a-ilustrace-pro-d-ti-92ace7db9be74ccd83e87b03b682a22b?pvs=21">Komiks a ilustrace pro děti</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"><a href="https://www.facebook.com/comics.zcu/" class="url-value">https://www.facebook.com/comics.zcu/</a></td><td class="cell-EXY_"></td></tr><tr id="7b4b9fa0-b4de-45a3-926b-4addc39592d0"><td class="cell-title"><a href="https://www.notion.so/Kniha-a-tvarov-n-pap-ru-7b4b9fa0b4de45a3926b4addc39592d0?pvs=21">Kniha a tvarování papíru</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"><a href="https://www.instagram.com/kniha_sutnarka/" class="url-value">https://www.instagram.com/kniha_sutnarka/</a></td><td class="cell-EXY_"></td></tr><tr id="fe90d596-5d0b-4256-83ce-1d150a08de19"><td class="cell-title"><a href="https://www.notion.so/Socha-a-prostor-fe90d5965d0b425683ce1d150a08de19?pvs=21">Socha a prostor</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"></td></tr><tr id="a7c8765c-dee2-4e66-a31b-4dd63e4a01f3"><td class="cell-title"><a href="https://www.notion.so/Nov-m-dia-a7c8765cdee24e66a31b4dd63e4a01f3?pvs=21">Nová média</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"><a href="https://www.facebook.com/profile.php?id=100057612213034" class="url-value">https://www.facebook.com/profile.php?id=100057612213034</a></td></tr><tr id="e7ca7b98-679b-4285-9fff-021cc52c1180"><td class="cell-title"><a href="https://www.notion.so/Grafika-e7ca7b98679b42859fff021cc52c1180?pvs=21">Grafika</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"></td><td class="cell-EXY_"><a href="https://www.facebook.com/IlustraceGrafikaIlustraceGrafika/" class="url-value">https://www.facebook.com/IlustraceGrafikaIlustraceGrafika/</a></td></tr><tr id="d8cdc50a-3dd3-4d94-96f6-09ea2eaa3069"><td class="cell-title"><a href="https://www.notion.so/Kov-a-perk-d8cdc50a3dd34d9496f609ea2eaa3069?pvs=21">Kov a šperk</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"><a href="https://www.instagram.com/kov.a.sperk.plzen/" class="url-value">https://www.instagram.com/kov.a.sperk.plzen/</a></td><td class="cell-EXY_"></td></tr><tr id="506bfbb2-3921-4a88-9995-c04034e621c4"><td class="cell-title"><a href="https://www.notion.so/Malba-506bfbb239214a889995c04034e621c4?pvs=21">Malba</a></td><td class="cell-sAmQ"></td><td class="cell-I`cG"></td><td class="cell-KhK="></td><td class="cell-RorW"><a href="https://www.instagram.com/malbasutnarka/" class="url-value">https://www.instagram.com/malbasutnarka/</a></td><td class="cell-EXY_"><a href="https://www.facebook.com/profile.php?id=100049262391606" class="url-value">https://www.facebook.com/profile.php?id=100049262391606</a></td></tr></tbody></table><br/><br/></div><p id="4e5a13bd-15eb-400d-b501-04ec27eef0b1" class="">Datum: <strong>07.11.2023</strong></p><p id="3a65d962-e182-4714-a946-3d207ab06280" class=""><strong>Shrnutí (FDU ZČU)</strong></p><p id="a6a14ef2-4e4f-498c-bc70-2aec8ea20448" class="">Počet atelierů: 21</p><p id="df718c5f-13ea-4a92-81bb-0cfb4d122324" class="">Počet webových stránek: 3 (14,28%) (0/100=0,16) (5/0,16=31%)</p><p id="0fb70ea1-9d2b-4e7d-aaed-28d8e44a37fc" class="">Počet odkazů na Instagram: 8 (38,09%)</p><p id="0dbd1489-cade-4174-bd0f-262f772cf608" class="">Počet odkazů na Facebook: 10 (47,61%)</p><p id="2c20c834-6dcd-4e7a-a4b4-c1fe888d8666" class="">
+</p><p id="a5565cdc-7735-4808-b055-bcda5e4cbad9" class=""><strong>Shrnuti</strong></p><p id="c0e7dd9b-3bf0-4d79-bb88-5c56854cc758" class="">Počet atelierů: 97</p><p id="4c45df83-289f-4ea8-9dd0-5ed3df9ed657" class="">Počet webových stránek: 32 (32,65%) (x/100=0,16) (5/0,16=31%)</p><p id="5b4247b4-9ca4-4449-bf3d-4d5c7bfdad8d" class="">Počet odkazů na Instagram: 55 (56,12%)</p><p id="6e09762d-ee12-43dc-9844-9c1dfa8624ed" class="">Počet odkazů na Facebook: 59 (60,20%)</p><p id="8d84b1d5-f298-49c9-bbac-7ab6fa0db8aa" class="">
+</p><p id="98922f12-c5d8-48f2-b5bb-6dbf57335690" class="">Další:</p><p id="771203a0-fdfa-4af6-8349-f7965728a28b" class=""><strong>Akademie výtvarných umění v Praze AVU</strong></p><p id="a3a1855d-649c-44d1-8772-cce3cc7a172a" class=""><a href="https://avu.cz/">https://avu.cz/</a></p><p id="c5734077-32ab-4181-82d9-a9494809ba50" class=""><a href="https://www.instagram.com/avu_prague/">https://www.instagram.com/avu_prague/</a></p><p id="6e8aee3f-7431-44a7-942b-82e01982beaa" class=""><a href="https://www.facebook.com/avuvpraze/">https://www.facebook.com/avuvpraze/</a></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
